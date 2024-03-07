@@ -1,0 +1,139 @@
+/* 
+1. **Font Imports**:
+   - The line `@import '@fontsource/fira-mono';` imports the **Fira Mono** font from the **fontsource** package. This font will be available for use in your styles.
+*/
+@import '@fontsource/fira-mono';
+
+
+/* 
+my-thisdot-app.002 :  `:root`, The colon (:) is indeed used for pseudo-classes in CSS. 
+
+my-thisdot-app.003 :  `--font-body`... 
+using the double hyphen (--) to create custom properties (user-defined variables) in CSS
+*/
+:root {
+	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--color-bg-0: rgb(202, 216, 228);
+	--color-bg-1: hsl(209, 36%, 86%);
+	--color-bg-2: hsl(224, 44%, 95%);
+	--color-theme-1: forestgreen;
+	--color-theme-2: #4075a6;
+	--color-text: rgba(0, 0, 0, 0.7);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+	font-family: var(--font-body);
+	color: var(--color-text);
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--color-theme-1);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	color: var(--color-text);
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	color: var(--color-text);
+	font-size: 1rem;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: rgba(255, 255, 255, 0.45);
+	border-radius: 3px;
+	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	padding: 0.5em;
+	overflow-x: auto;
+	color: var(--color-text);
+}
+
+.text-column {
+	display: flex;
+	max-width: 48rem;
+	flex: 0.6;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+/* 
+Certainly! Let's break down the CSS code you provided:
+
+3. **Typography Styles**:
+   - `h1`, `h2`, and `p` elements have a `font-weight` of 400 (normal).
+   - `p` elements have a `line-height` of 1.5 (to improve readability).
+
+4. **Link Styles**:
+   - `a` elements have a color based on `--color-theme-1`.
+   - On hover, the link text is underlined.
+
+5. **Heading Styles**:
+   - `h1` elements have a centered alignment and a font size of `2rem`.
+   - `h2` elements have a font size of `1rem`.
+
+6. **Code Block Styles**:
+   - `pre` elements (used for code blocks) have a font size of `16px` and use the `--font-mono` font.
+   - They have a light background color and a subtle box shadow.
+
+7. **Layout and Flexbox**:
+   - `.text-column` is a flex container with a maximum width of `48rem`.
+   - It occupies 60% of the available space and centers its content vertically.
+   - Input and button elements inherit font properties.
+
+8. **Accessibility**:
+   - `.visually-hidden` is an accessibility class that hides an element visually while still allowing screen readers to access its content.
+
+9. **Media Query**:
+   - The `@media (min-width: 720px)` query adjusts the font size of `h1` elements when the viewport width is at least 720 pixels.
+
+Overall, this CSS code defines typography, colors, layout, and accessibility properties for a web page. Feel free to explore and modify it according to your needs! 😊
+*/
