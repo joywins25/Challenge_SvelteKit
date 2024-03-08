@@ -1,5 +1,6 @@
 <script lang="ts">
-    import Character from './Character.svelte';
+    // import Character from '../../../lib/components/Character.svelte';
+    import Character from '$lib/components/Character.svelte';
 	export let data;
 
 	// my-thisdot-app.004 :  `data?.characters`, Optional Chaining in SvelteKit.

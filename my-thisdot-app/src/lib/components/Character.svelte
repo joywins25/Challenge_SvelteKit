@@ -20,6 +20,7 @@
         <h1>{name}</h1>
         <dl>
             <dt>Genter</dt>
+            <!-- my-thisdot-app.006 :  `{gender ?? ''}`, the nullish coalescing operator. -->
             <dd>{gender ?? ''}</dd>
             <dt>Hair</dt>
             <dd>{hairColor ?? ''}</dd>

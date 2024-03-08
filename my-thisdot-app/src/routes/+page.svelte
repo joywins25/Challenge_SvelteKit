@@ -7,8 +7,6 @@
     <title>Home</title>
 </svelte:head>
 
-<a href="/about">About</a>
-<a href="/characters">Characters</a>
 
 <h1>Welcome to SvelteKit, {person}^_____^!!!</h1>
 
