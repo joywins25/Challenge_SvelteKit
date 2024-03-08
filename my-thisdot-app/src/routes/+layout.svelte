@@ -13,3 +13,11 @@
 </nav>
 
 <slot></slot>
+
+
+<style>
+	nav {
+		text-align: left;
+		margin: 1rem;
+	}
+</style>

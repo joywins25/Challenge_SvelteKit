@@ -10,6 +10,13 @@
 
 <h1>Welcome to SvelteKit, {person}^_____^!!!</h1>
 
+<nav>
+	<ul>
+		<li>
+			<a href="/dashboard">App Dashboard</a>
+		</li>
+	</ul>
+</nav>
 
 
 <style>

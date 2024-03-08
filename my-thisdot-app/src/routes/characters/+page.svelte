@@ -13,8 +13,6 @@
 	<title>Characters</title>
 </svelte:head>
 
-<a href="/">Home</a>
-
 <h1>Characters</h1>
 
 <ul>

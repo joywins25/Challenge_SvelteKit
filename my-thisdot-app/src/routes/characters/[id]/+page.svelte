@@ -12,7 +12,5 @@
 	<title>{character.name}</title>
 </svelte:head>
 
-<a href="/">Home</a>
-<a href="/characters">Characters</a>
 
 <Character {...character} />
