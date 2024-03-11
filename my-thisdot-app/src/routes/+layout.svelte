@@ -10,6 +10,7 @@
     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/characters">Characters</a>
+    <a href="/blogs">Blogs</a>
 </nav>
 
 <slot></slot>
