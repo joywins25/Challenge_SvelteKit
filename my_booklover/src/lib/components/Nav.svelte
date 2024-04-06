@@ -1,65 +1,111 @@
-<!---
-Create a variable named isLoggedIn that will be set to true or false.  
-Then use it to create an if statement in the Svelte template that shows logged navigation if isLoggedIn is true or non-logged-in navigation if isLoggedIn is false.
--->
 <script>
-    let isLoggedIn = false;
+    import { page } from '$app/stores';
+    console.log('path : ', $page.url);
+    let isLoggedIn = true;
+
+    let tmp_active = false;
+
+    // _rnd_04_05_Navbar Mobile Challenge_001
+    let _rnd_04_05_isOpen = false;
+    function _rnd_04_05_toggleMenu(){
+        _rnd_04_05_isOpen = !_rnd_04_05_isOpen;
+        console.log(_rnd_04_05_isOpen);
+    }
 </script>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="/">Book Lover</a>
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbarNav"
-			aria-controls="navbarNav"
-			aria-expanded="false"
-			aria-label="Toggle navigation"
-		>
-			<span class="navbar-toggler-icon" />
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-                {#if isLoggedIn}
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="/">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/add">Add Book</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/profile">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/about">About</a>
-				</li>
-				<li class="nav-item">
-					<span class="nav-link">Logout</span>
-				</li>
-				{:else}
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="/">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/about">About</a>
-				</li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="/login">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/signup">Sign Up</a>
-				</li>
-                {/if}
-			</ul>
-		</div>
-	</div>
-</nav>
+<header class="header container-fluid">
+    <a href="/" class="header-brand" >Joywins</a>
+    <button on:click={_rnd_04_05_toggleMenu} class="outline">_rnd_04_05_Navbar Mobile Challenge_001</button>
+    {#if _rnd_04_05_isOpen}
+    <!-- <div class:show={_rnd_04_05_isOpen}> -->
+    <h3>{_rnd_04_05_isOpen}</h3>
+    <!-- </div> -->
+    {/if}
+    <nav class="nav">
+        <ul>
+            {#if isLoggedIn}
+                <li>
+                    <a href="/" class:secondary={$page.url.pathname === '/'}>Home</a>
+                </li>
+                <li>
+                    <a href="/add" class:secondary={$page.url.pathname === '/add'}>Add Book</a>
+                </li>
+                <li>
+                    <a href="/profile" class:secondary={$page.url.pathname === '/profile'}>Profile</a>
+                </li>
+                <li>
+                    <a href="/about" class:secondary={$page.url.pathname === '/about'}>About</a>
+                </li>
+                <li>
+                    <a href="/logout" class:secondary={$page.url.pathname === '/logout'}>Logout</a>
+                </li>
+            {:else}
+                <li>
+                    <a href="/" class:secondary={$page.url.pathname === '/'}>Home</a>
+                </li>
+                <li>
+                    <a href="/about" class:secondary={$page.url.pathname === '/about'}>About</a>
+                </li>
+
+                <li>
+                    <a href="/login" class:secondary={$page.url.pathname === '/login'}>Login</a>
+                </li>
+                <li>
+                    <a href="/signup" class:secondary={$page.url.pathname === '/signup'}>Sign Up</a>
+                </li>
+            {/if}
+        </ul>
+
+    </nav>
+</header>
+
+
 
 <style>
-	.nav-item > span {
-		cursor: pointer;
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		background-color: #fcfcfc;
+	}
+
+	.header-brand {
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: #025728;
+	}
+
+	.nav {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.nav-link {
+		display: block;
+		padding: 1rem;
+		text-decoration: none;
+		color: #333;
+	}
+
+	.nav-active {
+		background-color: #eee;
+	}
+
+	/* 화면 너비가 768px 이하면 메뉴가 스마트폰처럼 바닥으로 깔림 */
+    @media (max-width: 768px) {
+		.nav {
+			position: absolute;
+            justify-content: center;
+            align-items: center;            
+			top: 100%;
+			left: 0;
+			width: 100%;
+			background-color: #000000;
+			transition: transform 0.3s ease-in-out;
+			transform: translateY(-100%);
+		}
 	}
 </style>
