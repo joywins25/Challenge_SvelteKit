@@ -5,8 +5,8 @@
 
     onMount(()=>{
         setTimeout(()=>{
-            // messageStore.showSuccess('성공입니다');
-            messageStore.showError('처리에 실패했습니다')
+            messageStore.showSuccess('성공입니다');
+            // messageStore.showError('처리에 실패했습니다')
             console.log('messageStore.type : ', $messageStore.type);
         }, 3000);
     })
@@ -31,9 +31,9 @@
                      class:article_success={$messageStore.type.toLowerCase() === 'success'}>
                 <header class:header_error={$messageStore.type.toLowerCase() === 'error'}
                         class:header_success={$messageStore.type.toLowerCase() === 'success'}>
-                    <strong>{$messageStore.type}:</strong>
+                    <strong>처리 결과 : {$messageStore.type.toLowerCase() === 'error' ? '오류 발생' : '작업 성공'}</strong>
                 </header>
-                <div>
+                <div class="article_message">
                     {$messageStore.message} 
                 </div>
                 <button type="button" on:click={close_article} class="article_close_button">Close</button>
@@ -68,6 +68,11 @@
     }
     article.article_success {
         background-color: green;
+    }
+
+    .article_message {
+        margin-bottom: 30px;
+        color: white;
     }
 
     .article_close_button {
